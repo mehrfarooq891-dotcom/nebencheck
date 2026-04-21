@@ -223,6 +223,36 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-24 bg-surface border-t border-gray-100">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-12">Hinter NebenCheck</h2>
+          <div className="bg-white p-8 md:p-12 rounded-[3rem] shadow-xl border border-gray-100 relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
+            <div className="shrink-0 relative">
+              <div className="absolute inset-0 bg-primary/10 blur-2xl rounded-full translate-y-4" />
+              <img 
+                src="https://randomuser.me/api/portraits/men/32.jpg" 
+                alt="Julian Becker" 
+                className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-4 border-white shadow-xl"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <div className="text-left flex-1">
+              <p className="text-2xl text-text leading-relaxed font-medium mb-8">
+                "Das NebenCheck-Team besteht aus <span className="text-primary font-bold">Mietrecht-Enthusiasten</span> und <span className="text-primary font-bold">Technologie-Experten</span>, die Mietern in Deutschland helfen möchten, ihre Rechte zu verstehen."
+              </p>
+              <div>
+                <h4 className="text-2xl font-bold text-text mb-1">Julian Becker</h4>
+                <p className="text-primary font-bold text-lg mb-2">Mietrechtsberater & Gründer von NebenCheck</p>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface rounded-full text-xs font-bold text-muted uppercase tracking-wider">
+                  <Zap className="w-3 h-3 text-warning fill-warning" /> 10+ Jahre Erfahrung im deutschen Mietrecht
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -25,3 +25,35 @@
   }
 }
 
+.markdown-body {
+  @apply text-text;
+}
+
+.markdown-body h2 {
+  @apply text-3xl font-bold mt-12 mb-6;
+}
+
+.markdown-body h3 {
+  @apply text-xl font-bold mt-8 mb-4;
+}
+
+.markdown-body p {
+  @apply mb-6 leading-relaxed text-muted text-lg;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside mb-6 space-y-2 text-muted;
+}
+
+.markdown-body ol {
+  @apply list-decimal list-inside mb-6 space-y-2 text-muted;
+}
+
+.markdown-body strong {
+  @apply text-text font-bold;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-primary pl-6 italic my-8 text-xl text-muted;
+}
+

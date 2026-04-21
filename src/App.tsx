@@ -11,6 +11,8 @@ import { CO2Calculator } from './pages/CO2Calculator';
 import { DeadlineCheck } from './pages/DeadlineCheck';
 import { Glossary } from './pages/Glossary';
 import { CommonErrors } from './pages/CommonErrors';
+import { Blog } from './pages/Blog';
+import { BlogPost } from './pages/BlogPost';
 import { Impressum } from './pages/Impressum';
 import { Datenschutz } from './pages/Datenschutz';
 import './lib/i18n';
@@ -38,8 +40,8 @@ export default function App() {
         <Route path="/verjaehrungs-check" element={<DeadlineCheck />} />
         <Route path="/fehler-in-nebenkostenabrechnung" element={<CommonErrors />} />
         <Route path="/glossar" element={<Glossary />} />
-        <Route path="/blog" element={<PlaceholderPage title="Blog" />} />
-        <Route path="/blog/:slug" element={<PlaceholderPage title="Blog-Artikel" />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/datenschutz" element={<Datenschutz />} />
       </Routes>
