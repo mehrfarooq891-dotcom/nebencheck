@@ -7,6 +7,15 @@ import { Calendar, User, ArrowRight, BookOpen } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 export const Blog: React.FC = () => {
+  const getCategoryFallbackImage = (category: string) => {
+    const cat = category.toLowerCase();
+    if (cat.includes('recht')) return 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800';
+    if (cat.includes('news')) return 'https://images.unsplash.com/photo-1504711432869-5d39a130f48b?auto=format&fit=crop&q=80&w=800';
+    if (cat.includes('heizkosten')) return 'https://images.unsplash.com/photo-1585144152881-42179ec35661?auto=format&fit=crop&q=80&w=800';
+    if (cat.includes('musterbrief')) return 'https://images.unsplash.com/photo-1586762522614-912c81921c7b?auto=format&fit=crop&q=80&w=800';
+    return 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800'; // Default for Ratgeber
+  };
+
   return (
     <Layout>
       <section className="pt-32 pb-20 bg-surface">
@@ -27,37 +36,51 @@ export const Blog: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col"
+                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col h-full"
               >
-                <div className="p-8 flex-grow">
-                  <div className="flex items-center gap-4 mb-6">
+                {/* Top: Image */}
+                <Link to={`/blog/${post.slug}`} className="block overflow-hidden aspect-video">
+                  <img 
+                    src={post.imageUrl || getCategoryFallbackImage(post.category)} 
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </Link>
+
+                <div className="p-8 flex-grow flex flex-col">
+                  {/* Category Link */}
+                  <div className="flex items-center gap-4 mb-4">
                     <span className="px-3 py-1 bg-primary-light text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                       {post.category}
                     </span>
                     <span className="text-xs text-muted font-medium flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" /> {post.readTime} Lesezeit
+                      <BookOpen className="w-3 h-3" /> {post.readTime}
                     </span>
                   </div>
-                  <Link to={`/blog/${post.slug}`}>
-                    <h2 className="text-2xl font-bold font-serif mb-4 group-hover:text-primary transition-colors leading-tight">
+
+                  {/* Title */}
+                  <Link to={`/blog/${post.slug}`} className="block mb-4">
+                    <h2 className="text-2xl font-bold font-serif group-hover:text-primary transition-colors leading-tight">
                       {post.title}
                     </h2>
                   </Link>
-                  <p className="text-muted leading-relaxed mb-6 line-clamp-3">
+
+                  {/* Description */}
+                  <p className="text-muted leading-relaxed mb-6 line-clamp-3 text-sm">
                     {post.excerpt}
                   </p>
-                </div>
-                <div className="px-8 pb-8 mt-auto">
-                  <div className="flex items-center justify-between pt-6 border-t border-gray-50">
+
+                  {/* Bottom: Author + Date + Read more */}
+                  <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
                     <div className="flex flex-col">
                       <span className="text-xs font-bold text-text">{post.author}</span>
-                      <span className="text-[10px] text-muted flex items-center gap-1">
+                      <span className="text-[10px] text-muted flex items-center gap-1 mt-0.5">
                         <Calendar className="w-2.5 h-2.5" /> {post.date}
                       </span>
                     </div>
                     <Link to={`/blog/${post.slug}`}>
-                      <Button variant="ghost" size="sm" className="group/btn">
-                        Lesen <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                      <Button variant="ghost" size="sm" className="group/btn h-8 px-3 rounded-xl hover:bg-primary hover:text-white transition-all">
+                        Lesen <ArrowRight className="w-4 h-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
                   </div>

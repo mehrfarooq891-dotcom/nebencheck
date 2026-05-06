@@ -7,6 +7,7 @@ export interface BlogPost {
   content: string;
   category: string;
   readTime: string;
+  imageUrl: string;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -17,6 +18,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Julian Becker",
     category: "Ratgeber",
     readTime: "8 min",
+    imageUrl: "https://images.unsplash.com/photo-1554224155-1696413575b9?auto=format&fit=crop&q=80&w=800",
     excerpt: "Ist deine Nebenkostenabrechnung dieses Jahr wieder höher ausgefallen? Erfahre hier, wie du Fehler erkennst und rechtssicher widersprichst.",
     content: `
 ## Warum die Nebenkostenabrechnung oft fehlerhaft ist
@@ -76,6 +78,7 @@ Die Nebenkosten werden nicht umsonst als "zweite Miete" bezeichnet. Hundert oder
     author: "Julian Becker",
     category: "Recht",
     readTime: "7 min",
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
     excerpt: "Nicht alles, was auf der Abrechnung steht, ist rechtens. Wir zeigen dir die 7 häufigsten unzulässigen Kostenpositionen.",
     content: `
 ## Die Betriebskostenverordnung als strenges Regelwerk
@@ -127,6 +130,7 @@ Ein Widerspruch gegen diese Positionen ist oft sehr erfolgreich, da sie für den
     author: "Julian Becker",
     category: "News",
     readTime: "9 min",
+    imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800",
     excerpt: "Seit 2023 gibt es ein neues Gesetz zur Aufteilung der CO2-Kosten. Erfahre, wie viel dein Vermieter übernehmen muss.",
     content: `
 ## Eine neue Ära der Heizkostenabrechnung
@@ -182,6 +186,7 @@ Die CO2-Abgabe ist ein komplexes Thema, aber ein wichtiger Sieg für den Mieters
     author: "Julian Becker",
     category: "Ratgeber",
     readTime: "12 min",
+    imageUrl: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
     excerpt: "Nebenkostenabrechnung prüfen leicht gemacht. Schritt-für-Schritt Anleitung mit Checkliste. Erfahre, wie du typische Fehler erkennst und bis zu €500 pro Jahr sparst.",
     content: `
 Als Thomas aus München im letzten Monat seinen Briefkasten öffnete, ahnte er bereits Böses. Doch die Zahl, die ihn auf der dritten Seite seiner Nebenkostenabrechnung anstarrte, verschlug ihm den Atem: **1.842,50 Euro Nachzahlung**. 
@@ -266,6 +271,7 @@ Dein Julian Becker
     author: "Julian Becker",
     category: "Heizkosten",
     readTime: "15 min",
+    imageUrl: "https://images.unsplash.com/photo-1585144152881-42179ec35661?auto=format&fit=crop&q=80&w=800",
     excerpt: "Heizkosten zu hoch? Lerne welche Fehler häufig vorkommen und wie du bis zu 15% kürzen kannst. Kostenlos prüfen.",
     content: `
 Sarah aus Hamburg ist eine bewusste Mieterin. In ihrer 60 Quadratmeter großen Wohnung im Stadtteil Eimsbüttel achtet sie pingelig darauf, die Heizung herunterzudrehen, wenn sie den Raum verlässt, und lüftet nur stoßweise. Als sie jedoch ihre Heizkostenabrechnung für das vergangene Jahr erhielt, traute sie ihren Augen nicht: **1.200 Euro allein für Heizung und Warmwasser**. 
@@ -345,6 +351,7 @@ Dein Julian Becker
     author: "Julian Becker",
     category: "Musterbrief",
     readTime: "11 min",
+    imageUrl: "https://images.unsplash.com/photo-1586762522614-912c81921c7b?auto=format&fit=crop&q=80&w=800",
     excerpt: "Nebenkostenabrechnung falsch? Kostenloser Musterbrief zum Download. Rechtssicher Widerspruch einlegen in 5 Min.",
     content: `
 Lisa aus Berlin-Neukölln konnte es nicht fassen. In ihrer Post lag die Nebenkostenabrechnung für das Jahr 2022. Die Forderung: **920,45 Euro Nachzahlung**. 

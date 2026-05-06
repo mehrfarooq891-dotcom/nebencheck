@@ -61,7 +61,7 @@ const resources = {
         "co2": "CO2 Hesaplayıcı",
         "verjaehrung": "Zaman Aşımı",
         "glossar": "Sözlük",
-        "blog": "Blog"
+        "blog": "Blog ve Rehberler"
       },
       "hero": {
         "title": "Yan gider faturanızı 60 saniyede kontrol edin",
