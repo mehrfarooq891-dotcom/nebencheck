@@ -22,11 +22,11 @@ export const Header: React.FC = () => {
   };
 
   const navLinks = [
-    { name: t('nav.tool'), href: '/tool' },
-    { name: t('nav.heizkosten'), href: '/heizkosten-check' },
-    { name: t('nav.co2'), href: '/co2-abgabe-rechner' },
-    { name: t('nav.glossar'), href: '/glossar' },
-    { name: t('nav.blog'), href: '/blog' },
+    { name: "Checker Tool", href: "/tool" },
+    { name: "Heizkosten", href: "/heizkosten-check" },
+    { name: "CO2-Rechner", href: "/co2-abgabe-rechner" },
+    { name: "Glossar", href: "/glossar" },
+    { name: "Blog", href: "/blog" },
   ];
 
   return (

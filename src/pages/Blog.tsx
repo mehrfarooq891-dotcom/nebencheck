@@ -9,16 +9,17 @@ import { Button } from '../components/ui/Button';
 export const Blog: React.FC = () => {
   const getCategoryFallbackImage = (category: string) => {
     const cat = category.toLowerCase();
-    if (cat.includes('recht')) return 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800';
-    if (cat.includes('news')) return 'https://images.unsplash.com/photo-1504711432869-5d39a130f48b?auto=format&fit=crop&q=80&w=800';
-    if (cat.includes('heizkosten')) return 'https://images.unsplash.com/photo-1585144152881-42179ec35661?auto=format&fit=crop&q=80&w=800';
-    if (cat.includes('musterbrief')) return 'https://images.unsplash.com/photo-1586762522614-912c81921c7b?auto=format&fit=crop&q=80&w=800';
-    return 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800'; // Default for Ratgeber
+    if (cat.includes('recht') || cat.includes('ratgeber')) return 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200';
+    if (cat.includes('nachrichten') || cat.includes('news')) return 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1200';
+    if (cat.includes('heizkosten')) return 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200';
+    if (cat.includes('strom')) return 'https://images.unsplash.com/photo-1509391366360-fe5bb60213ad?q=80&w=1200&auto=format&fit=crop';
+    if (cat.includes('musterbrief')) return 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=1200';
+    return 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200'; // Default
   };
 
   return (
     <Layout>
-      <section className="pt-32 pb-20 bg-surface">
+      <section className="pt-32 pb-20 bg-[#f8f9fa]">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mb-16">
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-text mb-6">
@@ -33,57 +34,47 @@ export const Blog: React.FC = () => {
             {BLOG_POSTS.map((post, index) => (
               <motion.article
                 key={post.slug}
+                id={post.slug === 'balkonsolar-mieter-ratgeber' ? 'solar-card' : undefined}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col h-full"
+                className="blog-card"
               >
-                {/* Top: Image */}
-                <Link to={`/blog/${post.slug}`} className="block overflow-hidden aspect-video">
-                  <img 
-                    src={post.imageUrl || getCategoryFallbackImage(post.category)} 
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </Link>
+                {/* Top: Header Section (Gradient or Image fallback) */}
+                <div className="card-header-gradient">
+                    <span className="emoji">
+                      {post.category === 'STROMKOSTEN' ? '☀️' : 
+                       post.category === 'SOLARTECHNIK' ? '⚡' : 
+                       post.category === 'WIRTSCHAFTLICHKEIT' ? '📈' : '🔋'}
+                    </span>
+                    <p className="title-tag">{post.category.replace('_', ' ')}</p>
+                </div>
 
-                <div className="p-8 flex-grow flex flex-col">
-                  {/* Category Link */}
-                  <div className="flex items-center gap-4 mb-4">
-                    <span className="px-3 py-1 bg-primary-light text-primary text-xs font-bold rounded-full uppercase tracking-wider">
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-muted font-medium flex items-center gap-1">
-                      <BookOpen className="w-3 h-3" /> {post.readTime}
-                    </span>
-                  </div>
+                <div className="card-content">
+                  {/* Category Tag */}
+                  <span className="category-tag">
+                    {post.category}
+                  </span>
+                  
+                  {/* Read Time Info */}
+                  <p className="read-time-info">
+                    📖 {post.readTime.toUpperCase()} LESEZEIT
+                  </p>
 
                   {/* Title */}
-                  <Link to={`/blog/${post.slug}`} className="block mb-4">
-                    <h2 className="text-2xl font-bold font-serif group-hover:text-primary transition-colors leading-tight">
-                      {post.title}
-                    </h2>
+                  <Link to={`/blog/${post.slug}`}>
+                    <h2>{post.title}</h2>
                   </Link>
 
                   {/* Description */}
-                  <p className="text-muted leading-relaxed mb-6 line-clamp-3 text-sm">
+                  <p className="desc line-clamp-3">
                     {post.excerpt}
                   </p>
 
-                  {/* Bottom: Author + Date + Read more */}
-                  <div className="mt-auto pt-6 border-t border-gray-50 flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold text-text">{post.author}</span>
-                      <span className="text-[10px] text-muted flex items-center gap-1 mt-0.5">
-                        <Calendar className="w-2.5 h-2.5" /> {post.date}
-                      </span>
-                    </div>
-                    <Link to={`/blog/${post.slug}`}>
-                      <Button variant="ghost" size="sm" className="group/btn h-8 px-3 rounded-xl hover:bg-primary hover:text-white transition-all">
-                        Lesen <ArrowRight className="w-4 h-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </div>
+                  {/* Action Button */}
+                  <Link to={`/blog/${post.slug}`} className="read-more-btn">
+                    Weiterlesen
+                  </Link>
                 </div>
               </motion.article>
             ))}

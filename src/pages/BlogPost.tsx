@@ -45,6 +45,17 @@ export const BlogPost: React.FC = () => {
               {post.title}
             </h1>
 
+            {post.imageUrl && (
+              <div className="mb-12 rounded-[2.5rem] overflow-hidden aspect-[21/9] shadow-lg border border-gray-100">
+                <img 
+                  src={post.imageUrl} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            )}
+
             <div className="flex items-center justify-between py-8 border-y border-gray-100">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-100">
