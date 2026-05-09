@@ -45,7 +45,8 @@ export const Blog: React.FC = () => {
                     <span className="emoji">
                       {post.category === 'STROMKOSTEN' ? '☀️' : 
                        post.category === 'SOLARTECHNIK' ? '⚡' : 
-                       post.category === 'WIRTSCHAFTLICHKEIT' ? '📈' : '🔋'}
+                       post.category === 'WIRTSCHAFTLICHKEIT' ? '📈' : 
+                       post.category === 'FRISTEN' ? '⏳' : '🔋'}
                     </span>
                     <p className="title-tag">{post.category.replace('_', ' ')}</p>
                 </div>
